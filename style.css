@@ -1,0 +1,190 @@
+:root {
+  --primary: #663399;
+  --secondary: #25D366;
+  --light: #f8f8f8;
+  --dark: #222;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  color: var(--dark);
+  background: var(--light);
+}
+header {
+  background: url('hero-kaaba.jpg') center/cover no-repeat;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .5);
+}
+header img {
+  height: 60px;
+  position: relative;
+  z-index: 2;
+}
+header h1 {
+  font-size: 2rem;
+  color: #fff;
+  margin: 10px 0 8px;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 4px #000;
+}
+header p {
+  font-size: 1rem;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 1px 3px #000;
+}
+.btn {
+  padding: 12px 26px;
+  background: #fff;
+  color: var(--primary);
+  border: none;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+  margin-top: 12px;
+}
+.btn:hover {
+  background: #eaeaea;
+}
+nav {
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
+}
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+}
+nav a {
+  display: block;
+  padding: 12px 18px;
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+nav a:hover {
+  background: #f1f1f1;
+}
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.1rem;
+  color: var(--primary);
+}
+.paket {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+}
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.card-body {
+  padding: 18px;
+  text-align: center;
+}
+.card-body h3 {
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+.price {
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.wa-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--secondary);
+  color: #fff;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: 10px;
+}
+.wa-btn:hover {
+  background: #128C7E;
+}
+.legal-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+.legal-strip img {
+  height: 45px;
+  width: auto;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+.galeri-slider {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  border-radius: 12px;
+}
+.galeri-slider img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: fade 9s infinite;
+}
+.galeri-slider img:nth-child(1) {
+  animation-delay: 0s;
+}
+.galeri-slider img:nth-child(2) {
+  animation-delay: 3s;
+}
+.galeri-slider img:nth-child(3) {
+  animation-delay: 6s;
+}
+@keyframes fade {
+  0%, 33.33% {
+    opacity: 1;
+  }
+  33.34%, 100% {
+    opacity: 0;
+  }
+}
+footer {
+  background: var(--dark);
+  color: #ccc;
+  text-align: center;
+  padding: 25px 10px;
+}

@@ -1,73 +1,103 @@
+/* ---------- VARIABEL WARNA ---------- */
 :root {
   --primary: #663399;
   --secondary: #25D366;
   --light: #f8f8f8;
   --dark: #222;
+  --white: #ffffff;
+  --gray: #cccccc;
 }
-* {
+
+/* ---------- RESET ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
 }
 body {
   font-family: 'Poppins', Arial, sans-serif;
-  color: var(--dark);
   background: var(--light);
+  color: var(--dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 60px; /* space for fixed footer menu */
 }
+img {
+  max-width: 100%;
+  display: block;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* ---------- HEADER ---------- */
 header {
+  height: 60vh;
+  min-height: 320px;
   background: url('hero-kaaba.jpg') center/cover no-repeat;
-  min-height: 350px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   text-align: center;
+  color: var(--white);
   position: relative;
 }
 header::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, .5);
+  background: rgba(0, 0, 0, 0.55);
 }
-header img {
-  height: 60px;
+.hero {
   position: relative;
   z-index: 2;
 }
-header h1 {
-  font-size: 2rem;
-  color: #fff;
-  margin: 10px 0 8px;
-  position: relative;
-  z-index: 2;
-  text-shadow: 0 2px 4px #000;
+.hero img {
+  height: 55px;
+  margin: 0 auto 12px;
 }
-header p {
-  font-size: 1rem;
-  color: #fff;
-  position: relative;
-  z-index: 2;
-  text-shadow: 0 1px 3px #000;
+.hero h1 {
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  margin-bottom: 8px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+.hero p {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
 }
 .btn {
-  padding: 12px 26px;
-  background: #fff;
+  display: inline-block;
+  margin-top: 14px;
+  padding: 11px 26px;
+  background: var(--white);
   color: var(--primary);
-  border: none;
   border-radius: 30px;
   font-weight: 700;
-  text-decoration: none;
-  position: relative;
-  z-index: 2;
-  margin-top: 12px;
+  transition: background 0.3s;
 }
 .btn:hover {
   background: #eaeaea;
 }
+
+/* ---------- NAVIGASI STICKY ---------- */
 nav {
-  background: #fff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
+  position: sticky;
+  top: 0;
+  background: var(--white);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
 }
 nav ul {
   display: flex;
@@ -77,14 +107,16 @@ nav ul {
 }
 nav a {
   display: block;
-  padding: 12px 18px;
-  color: var(--primary);
+  padding: 12px 16px;
   font-weight: 600;
-  text-decoration: none;
+  color: var(--primary);
+  transition: background 0.3s;
 }
 nav a:hover {
   background: #f1f1f1;
 }
+
+/* ---------- LAYOUT UTAMA ---------- */
 .container {
   max-width: 1100px;
   margin: auto;
@@ -92,25 +124,30 @@ nav a:hover {
 }
 h2 {
   text-align: center;
-  margin-bottom: 30px;
-  font-size: 2.1rem;
+  margin-bottom: 25px;
+  font-size: clamp(1.5rem, 5vw, 2rem);
   color: var(--primary);
 }
+
+/* ---------- PAKET ---------- */
 .paket {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 .card {
-  background: #fff;
+  background: var(--white);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s;
+}
+.card:hover {
+  transform: translateY(-4px);
 }
 .card img {
   width: 100%;
   height: auto;
-  display: block;
 }
 .card-body {
   padding: 18px;
@@ -123,68 +160,142 @@ h2 {
 .price {
   color: var(--primary);
   font-weight: 700;
-  margin-bottom: 8px;
+  margin: 6px 0 12px;
 }
 .wa-btn {
   display: inline-block;
-  padding: 12px 28px;
+  padding: 10px 24px;
   background: var(--secondary);
-  color: #fff;
+  color: var(--white);
   border-radius: 30px;
   font-weight: 700;
-  text-decoration: none;
-  margin-top: 10px;
+  transition: background 0.3s;
 }
 .wa-btn:hover {
   background: #128C7E;
 }
-.legal-strip {
+
+/* ---------- LEGALITAS ---------- */
+.legal {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
-  margin-top: 15px;
+  margin-top: 18px;
 }
-.legal-strip img {
-  height: 45px;
+.legal img {
+  height: 42px;
   width: auto;
   border-radius: 4px;
   border: 1px solid #ddd;
 }
-.galeri-slider {
+
+/* ---------- GALERI SWIPE ---------- */
+.galeri {
   position: relative;
   overflow: hidden;
-  height: 200px;
   border-radius: 12px;
+  background: #ddd;
 }
-.galeri-slider img {
-  position: absolute;
+.galeri-wrap {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+.galeri-wrap img {
   width: 100%;
-  height: 100%;
+  flex: 0 0 100%;
+  height: 220px;
   object-fit: cover;
-  opacity: 0;
-  animation: fade 9s infinite;
 }
-.galeri-slider img:nth-child(1) {
-  animation-delay: 0s;
+.galeri button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 1.4rem;
+  padding: 6px 12px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background 0.3s;
 }
-.galeri-slider img:nth-child(2) {
-  animation-delay: 3s;
+.galeri button:hover {
+  background: var(--white);
 }
-.galeri-slider img:nth-child(3) {
-  animation-delay: 6s;
+.prev {
+  left: 10px;
 }
-@keyframes fade {
-  0%, 33.33% {
-    opacity: 1;
-  }
-  33.34%, 100% {
-    opacity: 0;
-  }
+.next {
+  right: 10px;
 }
+
+/* ---------- FOOTER ---------- */
 footer {
   background: var(--dark);
-  color: #ccc;
+  color: var(--gray);
   text-align: center;
-  padding: 25px 10px;
+  padding: 20px 10px;
+  font-size: 0.75rem;
+}
+
+/* ---------- MOBILE FOOTER MENU (FIXED) ---------- */
+.foot-menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--white);
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-around;
+  z-index: 99;
+}
+.foot-menu a {
+  flex: 1;
+  text-align: center;
+  padding: 10px 4px 8px;
+  font-size: 0.65rem;
+  color: var(--dark);
+  transition: background 0.2s;
+}
+.foot-menu a:hover {
+  background: #f1f1f1;
+}
+.foot-menu i {
+  font-style: normal;
+  font-size: 1.3rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ---------- FLOATING WHATSAPP ---------- */
+.float-wa {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  background: var(--secondary);
+  color: var(--white);
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s, background 0.3s;
+  z-index: 100;
+}
+.float-wa:hover {
+  transform: scale(1.1);
+  background: #128C7E;
+}
+
+/* ---------- RESPONSIVE MINOR ---------- */
+@media (min-width: 768px) {
+  .foot-menu {
+    display: none; /* sembunyikan menu bawah di layar besar */
+  }
+  body {
+    padding-bottom: 0;
+  }
 }

@@ -125,7 +125,7 @@
     </div>
   </section>
   
-<!-- GALERI -->
+<!-- ===== GALERI ===== --->
 <section id="galeri" class="container">
   <h2>Galeri Perjalanan</h2>
   <div class="galeri">
@@ -138,91 +138,56 @@
     <button class="next" onclick="geser(1)">&#10095;</button>
   </div>
 </section>
-  <script>
-    
-  <!-- KONTAK -->
-  <section id="kontak" class="container" style="text-align:center">
-    <h2>Kontak & Alamat</h2>
-    <p style="line-height:1.8">
-      <strong>Alamat:</strong><br>
-      Kompleks Pondok Pesantren Putra Putri Al Azhar,<br>
-      Desa Karangsari, Kec. Purwodadi, Kab. Purworejo<br><br>
-      <strong>Email:</strong> attamimitours@gmail.com<br>
-      <strong>WhatsApp:</strong> +62 851-8304-9514<br>
-      <a href="https://wa.me/6285183049514?text=Assalamu%27alaikum%2C%20saya%20ingin%20konsultasi%20paket" class="wa-btn">Chat WhatsApp</a>
-    </p>
-  </section>
 
-  <!-- FOOTER -->
-  <footer>
-    &copy; 2025 Attamimi Tours – Izin PPIU U.352/2020 & PIHK 02202072929030002/2024
-  </footer>
+<!-- ===== KONTAK ===== --->
+<section id="kontak" class="container" style="text-align:center">
+  <h2>Kontak & Alamat</h2>
+  ...
+</section>
 
-  <!-- MOBILE FOOTER MENU -->
-  <div class="foot-menu">
-    <a href="#about"><i>🏠</i>Beranda</a>
-    <a href="#paket"><i>✈️</i>Paket</a>
-    <a href="#galeri"><i>🖼️</i>Galeri</a>
-    <a href="#kontak"><i>📞</i>Kontak</a>
-  </div>
+<!-- ===== FOOTER ===== --->
+<footer>
+  &copy; 2025 Attamimi Tours – Izin PPIU U.352/2020 & PIHK 02202072929030002/2024
+</footer>
 
-  <!-- FLOATING WA -->
-  <a href="https://wa.me/6285183049514?text=Assalamu%27alaikum%2C%20saya%20ingin%20konsultasi%20paket" class="float-wa" aria-label="WhatsApp">
-    <i style="font-style:normal">💬</i>
-  </a>
+<!-- ===== MOBILE FOOTER MENU ===== --->
+<div class="foot-menu">
+  <a href="#about"><i>🏠</i>Beranda</a>
+  <a href="#paket"><i>✈️</i>Paket</a>
+  <a href="#galeri"><i>🖼️</i>Galeri</a>
+  <a href="#kontak"><i>📞</i>Kontak</a>
+</div>
 
-  <!-- JAVASCRIPT KECIL -->
-  <script>
-    // unmute backsound setelah interaksi pertama
-    document.addEventListener('click',()=>{
-      const a=document.getElementById('bgm');
-      a.muted=false; a.play();
-    },{once:true});
+<!-- ===== FLOATING WA ===== --->
+<a href="https://wa.me/6285183049514?text=Assalamu%27alaikum%2C%20saya%20ingin%20konsultasi%20paket" class="float-wa" aria-label="WhatsApp"><i>💬</i></a>
 
-    // galeri slide
-    let idx=0;
-    function geser arah ){
-      const wrap=document.getElementById('galeri-wrap');
-      const jml=wrap.children.length;
-      idx=(idx+arah+jml)%jml;
-      wrap.style.transform=`translateX(-${idx*100}%)`;
-    }
-    // swipe touch
-    let x0=null;
-    const gal=document.querySelector('.galeri');
-    gal.addEventListener('touchstart',e=>x0=e.touches[0].clientX);
-    gal.addEventListener('touchend',e=>{
-      if(!x0) return;
-      let arah=e.changedTouches[0].clientX>x0?-1:1;
-      geser(arah); x0=null;
-    });
-  </script>
-<!-- ===== GALERI SLIDE SCRIPT ===== -->
+<!-- ===== SATU SCRIPT DI BAWAH SEMUA ===== --->
 <script>
-  /* ---------- galeri ---------- */
-  let idx = 0;
-  const wrap = document.getElementById('galeri-wrap');
-  const imgCount = wrap.children.length;
+  /* unmute backsound */
+  document.addEventListener('click',()=>{
+    const a=document.getElementById('bgm');
+    a.muted=false; a.play();
+  },{once:true});
 
-  function geser(arah) {
-    idx = (idx + arah + imgCount) % imgCount;
-    wrap.style.transform = `translateX(-${idx * 100}%)`;
+  /* galeri slide */
+  let idx=0;
+  const wrap=document.getElementById('galeri-wrap');
+  const imgCount=wrap.children.length;
+  function geser(arah){
+    idx=(idx+arah+imgCount)%imgCount;
+    wrap.style.transform=`translateX(-${idx*100}%)`;
   }
-
-  /* swipe untuk HP */
-  let x0 = null;
-  const gal = document.querySelector('.galeri');
-  gal.addEventListener('touchstart', e => x0 = e.touches[0].clientX, {passive:true});
-  gal.addEventListener('touchend', e => {
-    if (!x0) return;
-    let arah = e.changedTouches[0].clientX > x0 ? -1 : 1;
-    geser(arah);
-    x0 = null;
-  }, {passive:true});
-
+  /* swipe HP */
+  let x0=null;
+  const gal=document.querySelector('.galeri');
+  gal.addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+  gal.addEventListener('touchend',e=>{
+    if(!x0)return;
+    geser(e.changedTouches[0].clientX>x0?-1:1);
+    x0=null;
+  },{passive:true});
   /* auto-slide 10 detik */
-  setInterval(() => geser(1), 10_000);
+  setInterval(()=>geser(1),10_000);
 </script>
-  
 </body>
 </html>

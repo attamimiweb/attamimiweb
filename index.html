@@ -125,20 +125,32 @@
     </div>
   </section>
 
-  <!-- GALERI SWIPE -->
-  <section id="galeri" class="container">
-    <h2>Galeri Perjalanan</h2>
-    <div class="galeri">
-      <div class="galeri-wrap" id="galeri-wrap">
-        <img src="galeri1.jpg" alt="Mekkah" loading="lazy">
-        <img src="galeri2.jpg" alt="Madinah" loading="lazy">
-        <img src="galeri3.jpg" alt="Arafah" loading="lazy">
-      </div>
-      <button class="prev" onclick="geser(-1)">&#10094;</button>
-      <button class="next" onclick="geser(1)">&#10095;</button>
-    </div>
-  </section>
+  <script>
+  /* ---------- galeri swipe ---------- */
+  let idx = 0;
+  const wrap = document.getElementById('galeri-wrap');
+  const imgCount = wrap.children.length;
 
+  function geser(arah) {
+    idx = (idx + arah + imgCount) % imgCount;
+    wrap.style.transform = `translateX(-${idx * 100}%)`;
+  }
+
+  /* swipe untuk HP */
+  let x0 = null;
+  const gal = document.querySelector('.galeri');
+  gal.addEventListener('touchstart', e => x0 = e.touches[0].clientX, {passive:true});
+  gal.addEventListener('touchend', e => {
+    if (!x0) return;
+    let arah = e.changedTouches[0].clientX > x0 ? -1 : 1;
+    geser(arah);
+    x0 = null;
+  }, {passive:true});
+
+  /* auto-slide 10 detik */
+  setInterval(() => geser(1), 10_000);
+</script>
+  
   <!-- KONTAK -->
   <section id="kontak" class="container" style="text-align:center">
     <h2>Kontak & Alamat</h2>

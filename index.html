@@ -1,61 +1,103 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8">
   <title>Attamimi Tours – Haji & Umroh Terpercaya</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* ====== tambahan kecil supaya bisa standalone ====== */
+    :root{--p:#663399;--s:#25D366;--l:#f8f8f8;--d:#222}
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif}
+    body{background:var(--l);color:var(d);padding-bottom:60px}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    header{height:60vh;min-height:300px;background:url("hero-kaaba.jpg") center/cover no-repeat;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}
+    header::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.55)}
+    .hero{z-index:2;position:relative}
+    .hero img{height:55px;margin:auto}
+    .hero h1{font-size:clamp(1.4rem,5vw,2.2rem);margin:10px 0 6px;text-shadow:0 2px 4px #000}
+    .hero p{font-size:clamp(.9rem,2.5vw,1.1rem);text-shadow:0 1px 3px #000}
+    .btn{background:#fff;color:var(--p);padding:11px 24px;border-radius:30px;font-weight:700;display:inline-block;margin-top:12px}
+    nav{background:#fff;box-shadow:0 2px 5px rgba(0,0,0,.1);position:sticky;top:0;z-index:10}
+    nav ul{display:flex;flex-wrap:wrap;justify-content:center;list-style:none}
+    nav a{padding:12px 16px;font-weight:600;color:var(--p)}
+    .container{max-width:1100px;margin:auto;padding:40px 20px}
+    h2{text-align:center;margin-bottom:25px;font-size:clamp(1.5rem,5vw,2rem);color:var(--p)}
+    .paket{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+    .card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+    .card-body{padding:18px;text-align:center}
+    .price{color:var(--p);font-weight:700;margin:6px 0 12px}
+    .wa-btn{background:var(--s);color:#fff;padding:10px 24px;border-radius:30px;font-weight:700;display:inline-block}
+    .wa-btn:hover{background:#128C7E}
+    .legal{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:15px}
+    .legal img{height:42px}
+    /* ---- galeri swipe ---- */
+    .galeri{position:relative;overflow:hidden;border-radius:12px;background:#ddd}
+    .galeri-wrap{display:flex;transition:transform .4s ease}
+    .galeri-wrap img{width:100%;flex:0 0 100%;height:220px;object-fit:cover}
+    .galeri button{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.8);border:none;font-size:1.4rem;padding:6px 12px;border-radius:50%;cursor:pointer}
+    .prev{left:10px}
+    .next{right:10px}
+    /* ---- mobile footer menu ---- */
+    .foot-menu{position:fixed;bottom:0;left:0;right:0;background:#fff;box-shadow:0 -2px 6px rgba(0,0,0,.1);display:flex;justify-content:space-around;z-index:99}
+    .foot-menu a{flex:1;text-align:center;padding:10px 4px;font-size:.65rem;color:var(--d)}
+    .foot-menu i{font-size:1.3rem;display:block;margin-bottom:4px}
+    /* ---- floating wa ---- */
+    .float-wa{position:fixed;bottom:70px;right:20px;background:var(--s);color:#fff;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-size:1.6rem;box-shadow:0 4px 8px rgba(0,0,0,.25);z-index:100}
+    footer{background:var(--d);color:#bbb;text-align:center;padding:20px 10px;font-size:.75rem}
+  </style>
 </head>
 
 <body>
-  <!-- Background music -->
-  <audio id="bg-music" src="islamic-bg.mp3" autoplay muted loop></audio>
+  <!-- musik latar -->
+  <audio id="bgm" src="islamic-bg.mp3" loop muted autoplay></audio>
 
   <!-- HERO -->
   <header>
-    <img src="Logo.png" alt="Attamimi Logo">
-    <h1>Attamimi Tours & Travel</h1>
-    <p>Haji Khusus Tanpa Antri & Umroh Sepanjang Tahun</p>
-    <a href="#packages" class="btn">Lihat Paket</a>
+    <div class="hero">
+      <img src="Logo.png" alt="Attamimi">
+      <h1>Attamimi Tours & Travel</h1>
+      <p>Haji Khusus Tanpa Antri & Umroh Sepanjang Tahun</p>
+      <a href="#paket" class="btn">Lihat Paket</a>
+    </div>
   </header>
 
-  <!-- NAV -->
+  <!-- NAVIGASI -->
   <nav>
     <ul>
       <li><a href="#about">Tentang</a></li>
-      <li><a href="#packages">Paket</a></li>
-      <li><a href="#gallery">Galeri</a></li>
-      <li><a href="#contact">Kontak</a></li>
+      <li><a href="#paket">Paket</a></li>
+      <li><a href="#galeri">Galeri</a></li>
+      <li><a href="#kontak">Kontak</a></li>
     </ul>
   </nav>
 
   <!-- TENTANG -->
   <section id="about" class="container">
     <h2>Tentang Kami</h2>
-    <p>
+    <p style="max-width:800px;margin:auto;text-align:center;line-height:1.7">
       Selamat datang di <strong>Attamimi Tours & Travel</strong> – tempat impian ibadah Anda menjadi kenyataan!<br><br>
-      Dengan <strong>izin resmi PPIU No. U.352/2020 & PIHK No. 02202072929030002/2024</strong>, kami berkomitmen
-      memberikan pengalaman <em>Haji Khusus Tanpa Antri</em> & <em>Umroh Sepanjang Tahun</em> yang <strong>NYAMAN, AMAN, dan BERKAH</strong>.<br><br>
+      Dengan izin resmi <strong>PPIU No. U.352/2020 & PIHK No. 02202072929030002/2024</strong>, kami menjamin perjalanan
+      <em>Haji Khusus Tanpa Antri</em> & <em>Umroh Sepanjang Tahun</em> yang <strong>NYAMAN, AMAN, dan BERKAH</strong>.<br><br>
       Ribuan jamaah telah mempercayakan momen suci mereka kepada kami – kini giliran Anda!
     </p>
-
-    <!-- Logo legalitas -->
-    <div class="legal-strip">
-      <img src="LogoKemenag.png"   alt="Kemenag">
-      <img src="LogoAmphuri.png"   alt="Amphuri">
-      <img src="LogoSiskopatuh.jpg" alt="Siskopatuh">
-      <img src="Logo5Pasti.png"    alt="5Pasti">
-      <img src="LogoIATA.png"      alt="IATA">
+    <div class="legal">
+      <img src="LogoKemenag.png" alt="Kemenag" loading="lazy">
+      <img src="LogoAmphuri.png" alt="Amphuri" loading="lazy">
+      <img src="LogoSiskopatuh.jpg" alt="Siskopatuh" loading="lazy">
+      <img src="Logo5Pasti.png" alt="5Pasti" loading="lazy">
+      <img src="LogoIATA.png" alt="IATA" loading="lazy">
     </div>
   </section>
 
   <!-- PAKET -->
-  <section id="packages" class="container">
+  <section id="paket" class="container">
     <h2>Pilihan Paket</h2>
     <div class="paket">
       <div class="card">
-        <img src="paket-haji.jpg" alt="Haji Khusus">
+        <img src="paket-haji.jpg" alt="Haji Khusus" loading="lazy">
         <div class="card-body">
           <h3>Haji Khusus 2025</h3>
           <p>Durasi 25 Hari | Hotel 5★ Makkah & Madinah</p>
@@ -63,9 +105,8 @@
           <a href="https://wa.me/6285183049514?text=Saya%20tertarik%20Paket%20Haji%20Khusus" class="wa-btn">Pesan via WA</a>
         </div>
       </div>
-
       <div class="card">
-        <img src="umroh9.jpg" alt="Umroh 9 Hari">
+        <img src="umroh9.jpg" alt="Umroh 9 Hari" loading="lazy">
         <div class="card-body">
           <h3>Umroh 9 Hari</h3>
           <p>Lion Air | Hotel 3★ | 3× Umroh</p>
@@ -73,9 +114,8 @@
           <a href="https://wa.me/6285183049514?text=Saya%20tertarik%20Umroh%209%20Hari" class="wa-btn">Pesan via WA</a>
         </div>
       </div>
-
       <div class="card">
-        <img src="umroh12.jpg" alt="Umroh 12 Hari">
+        <img src="umroh12.jpg" alt="Umroh 12 Hari" loading="lazy">
         <div class="card-body">
           <h3>Umroh 12 Hari</h3>
           <p>Malaysia Airlines | Hotel 4★ | 3× Umroh</p>
@@ -83,9 +123,8 @@
           <a href="https://wa.me/6285183049514?text=Saya%20tertarik%20Umroh%2012%20Hari" class="wa-btn">Pesan via WA</a>
         </div>
       </div>
-
       <div class="card">
-        <img src="umroh14.jpg" alt="Umroh 14 Hari">
+        <img src="umroh14.jpg" alt="Umroh 14 Hari" loading="lazy">
         <div class="card-body">
           <h3>Umroh 14 Hari</h3>
           <p>Saudia Airlines | Hotel 4★ | 3× Umroh</p>
@@ -96,43 +135,75 @@
     </div>
   </section>
 
-  <!-- GALERI -->
-  <section id="gallery" class="container">
+  <!-- GALERI SWIPE -->
+  <section id="galeri" class="container">
     <h2>Galeri Perjalanan</h2>
-    <div class="galeri-slider">
-      <img src="galeri1.jpg" alt="Mekkah">
-      <img src="galeri2.jpg" alt="Madinah">
-      <img src="galeri3.jpg" alt="Arafah">
+    <div class="galeri">
+      <div class="galeri-wrap" id="galeri-wrap">
+        <img src="galeri1.jpg" alt="Mekkah" loading="lazy">
+        <img src="galeri2.jpg" alt="Madinah" loading="lazy">
+        <img src="galeri3.jpg" alt="Arafah" loading="lazy">
+      </div>
+      <button class="prev" onclick="geser(-1)">&#10094;</button>
+      <button class="next" onclick="geser(1)">&#10095;</button>
     </div>
   </section>
 
   <!-- KONTAK -->
-  <section id="contact" class="container" style="text-align:center">
+  <section id="kontak" class="container" style="text-align:center">
     <h2>Kontak & Alamat</h2>
     <p style="line-height:1.8">
       <strong>Alamat:</strong><br>
       Kompleks Pondok Pesantren Putra Putri Al Azhar,<br>
       Desa Karangsari, Kec. Purwodadi, Kab. Purworejo<br><br>
-
-      <strong>Email:</strong> attamimitours@gmail.com<br><br>
-
-      <strong>WhatsApp:</strong> +62 851-8304-9514<br><br>
-
-      <a href="https://wa.me/6285183049514?text=Assalamu'alaikum%2C%20saya%20ingin%20konsultasi%20paket" class="wa-btn">Chat WhatsApp Sekarang</a>
+      <strong>Email:</strong> attamimitours@gmail.com<br>
+      <strong>WhatsApp:</strong> +62 851-8304-9514<br>
+      <a href="https://wa.me/6285183049514?text=Assalamu%27alaikum%2C%20saya%20ingin%20konsultasi%20paket" class="wa-btn">Chat WhatsApp</a>
     </p>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     &copy; 2025 Attamimi Tours – Izin PPIU U.352/2020 & PIHK 02202072929030002/2024
   </footer>
 
-  <!-- Musik handler -->
+  <!-- MOBILE FOOTER MENU -->
+  <div class="foot-menu">
+    <a href="#about"><i>🏠</i>Beranda</a>
+    <a href="#paket"><i>✈️</i>Paket</a>
+    <a href="#galeri"><i>🖼️</i>Galeri</a>
+    <a href="#kontak"><i>📞</i>Kontak</a>
+  </div>
+
+  <!-- FLOATING WA -->
+  <a href="https://wa.me/6285183049514?text=Assalamu%27alaikum%2C%20saya%20ingin%20konsultasi%20paket" class="float-wa" aria-label="WhatsApp">
+    <i style="font-style:normal">💬</i>
+  </a>
+
+  <!-- JAVASCRIPT KECIL -->
   <script>
-    // biar autoplay di browser baru (harus interaksi dulu)
-    document.addEventListener('click', () => {
-      const audio = document.getElementById('bg-music');
-      audio.muted = false;
-      audio.play();
+    // unmute backsound setelah interaksi pertama
+    document.addEventListener('click',()=>{
+      const a=document.getElementById('bgm');
+      a.muted=false; a.play();
+    },{once:true});
+
+    // galeri slide
+    let idx=0;
+    function geser arah ){
+      const wrap=document.getElementById('galeri-wrap');
+      const jml=wrap.children.length;
+      idx=(idx+arah+jml)%jml;
+      wrap.style.transform=`translateX(-${idx*100}%)`;
+    }
+    // swipe touch
+    let x0=null;
+    const gal=document.querySelector('.galeri');
+    gal.addEventListener('touchstart',e=>x0=e.touches[0].clientX);
+    gal.addEventListener('touchend',e=>{
+      if(!x0) return;
+      let arah=e.changedTouches[0].clientX>x0?-1:1;
+      geser(arah); x0=null;
     });
   </script>
 </body>

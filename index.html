@@ -21,16 +21,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   gtag('config', 'AW-961367027');
 </script>
   
-  <!-- Event snippet for Website traffic conversion page -->
-<script>
-  gtag('event', 'conversion', {'send_to': 'AW-961367027/e6VkCN_LhPECEPOXtcoD'});
-</script>
-
-<!-- Event snippet for Kunjungan halaman conversion page -->
-<script>
-  gtag('event', 'conversion', {'send_to': 'AW-961367027/DQlVCPb_p4ADEPOXtcoD'});
-</script>
-  
   <meta name="google-site-verification" content="Umo75pcrRNEr-g9k5pQHi5maV5Y7-P8K3OMUdF7IYLY" />
   <meta charset="utf-8">
   <title>Attamimi Tours – Haji & Umroh Terpercaya</title>
@@ -266,5 +256,53 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   /* auto-slide 10 detik */
   setInterval(()=>geser(1),10_000);
 </script>
+
+  <!-- ----- Google Ads: track WA clicks (manual trigger) ----- -->
+<script>
+  // Ganti send_to jika mau pakai event snippet lain
+  const GADS_SEND_TO = 'AW-961367027/e6VkCN_LhPECEPOXtcoD';
+
+  function sendGadsConversion(sendTo, callback) {
+    // Pastikan gtag tersedia
+    if (typeof gtag === 'function') {
+      try {
+        gtag('event', 'conversion', {'send_to': sendTo});
+      } catch (e) {
+        // fallback silent
+      }
+      // biarkan 200 ms agar request sempat dikirim (cukup umum dipakai)
+      if (typeof callback === 'function') setTimeout(callback, 200);
+      else setTimeout(()=>{}, 200);
+    } else {
+      // kalau gtag belum siap, langsung lanjut
+      if (typeof callback === 'function') callback();
+    }
+  }
+
+  // Pasang handler otomatis ke semua link WA (wa.me) di halaman
+  document.addEventListener('click', function(e){
+    // cari anchor terdekat
+    const a = e.target.closest && e.target.closest('a[href*="wa.me"]');
+    if (!a) return;
+    // jika link WA mengarah ke nomor (biasa), kita tangani navigasi sendiri
+    // agar event punya waktu terkirim
+    try {
+      const href = a.href;
+      // cegah navigasi default sementara
+      e.preventDefault();
+      // kirim event
+      sendGadsConversion(GADS_SEND_TO, function(){
+        // setelah delay kecil, lanjutkan ke WA
+        // gunakan replace agar tidak menambah history
+        window.location.href = href;
+      });
+    } catch (err) {
+      // jika error, fallback ke navigasi normal
+      // (untuk mencegah link mati)
+      window.location.href = a.href;
+    }
+  }, false);
+</script>
+
 </body>
 </html>

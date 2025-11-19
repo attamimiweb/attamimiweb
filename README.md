@@ -1,66 +1,31 @@
-# 🚀 Attamimi Tours – Haji & Umroh Terpercaya
+# Travel Umroh Resmi Purworejo
 
-Web landing-page sederhana untuk biro perjalanan Haji & Umroh Attamimi Tours.  
-Built with pure HTML, CSS & vanilla JavaScript – no framework, no build step.
+**Umrah Purworejo** & **Umroh Purworejo** kini lebih mudah dengan biro perjalanan **resmi Kemenag RI**.  
+Kami melayani paket:
+- 9 Hari (Mekkah-Madinah)
+- 12 Hari (Mekkah-Madinah-Turki)
+- 14 Hari (Mekkah-Madinah-Jordan)
+- Haji khusus kuota pemerintah langsung berangkat 
 
----
+## 📍 Kantor Kami
+Kompleks Pondok Pesantren Putra-Putri Al Azhar 
+Jl. KH. Azhar DUSUN KEBONAGUNG RT.01 RW.01 DESA KARANGSARI KECAMATAN PURWODADI KABUPATEN PURWOREJO JAWA TENGAH 54173  
+📞 WhatsApp: [+62 851-8304-9514](https://wa.me/6285183049514)  
+🌐 Website: [https://attamimitours.biz.id/umroh-purworejo](https://attamimitours.biz.id/umroh-purworejo) <!-- backlink do-follow -->
 
-## 📦 What's Inside
+## ✅ Legalitas
+- Izin Umroh Kemenag RI: PPIU U.352/2020  
+- Izin Haji Khusus Kemenag RI: PIHK 02202072929030002/2024  
+- Anggota ASITA Jawa Tengah  
+- amphuri
+- IATA
+- EAS SERTIFIKASI
 
-| File | Description |
-|------|-------------|
-| `index.html` | Halaman utama (hero, paket, galeri swipe, kontak, footer-menu) |
-| `style.css` | Gaya tampilan + responsif + mobile-first |
-| `*.jpg` `*.png` `*.mp3` | Asset gambar, logo, galeri, backsound (isi sendiri) |
-| `README.md` | Dokumentasi ini |
+## 📦 Fasilitas
+- Visa & manasik gratis  
+- Hotel bintang 4/5  
+- Mutawwif berpengalaman  
 
----
+## 🚀 Mulai Sekarang
+Klik link di atas atau langsung hubungi WhatsApp untuk konsultasi gratis!
 
-## 🚀 How to Use
-
-1. Clone / download repo ini
-2. Letakkan **semua file** dalam 1 folder yang sama
-3. Masukkan asset gambar & audio sesuai nama di bawah
-4. Double-click `index.html` → buka di browser – selesai!
-
----
-
-## 📁 Required Assets
-
-Pastikan file berada **di root folder** (bisa pakai placeholder dulu):
-
-> **Tip:** Belum punya foto? Ganti sementara dengan [placeholder](https://via.placeholder.com) agar layout tidak "pecah".
-
----
-
-## ✨ Fitur
-
-- ✅ 100 % responsif – HP, tablet, desktop  
-- ✅ Galeri otomatis slide 10 detik + bisa di-swipe/klik  
-- ✅ Menu navigasi bawah (mobile) + floating WhatsApp  
-- ✅ Lazy-load gambar & autoplay backsound (muted hingga user klik)  
-- ✅ SEO-friendly – meta viewport, semantic tag, fast load
-
----
-
-## 🔧 Customization
-
-| Yang sering diganti | Lokasi |
-|---------------------|--------|
-| Nomor WA | Cari `6285183049514` di `index.html` |
-| Harga paket | Di dalam `.card-body` |
-| Foto / backsound | Ganti file asset, jangan ubah nama |
-| Warna tema | Ubah CSS variable `--p:` & `--s:` di `style.css` |
-
----
-
-## 📄 License
-
-Repo ini **open-source** – bebas dipakai, di-edit, bahkan untuk projek komersial.  
-Silakan tambahkan credit "Attamimi Tours" jika dirasa perlu.
-
----
-
-**Need help?**  
-WA kami: [+62 851-8304-9514](https://wa.me/6285183049514)  
-Email: attamimitours@gmail.com
